@@ -9,8 +9,6 @@ public class PlayerMotionIntro : MonoBehaviour {
     private Transform[] targets; //Holds the waypoints
     [SerializeField]
     private float speed; //moving speed of character
-    [SerializeField]
-    private float rotationSpeed; //rotation speed toward waypoint
 
     private int current;
 	
@@ -21,10 +19,11 @@ public class PlayerMotionIntro : MonoBehaviour {
             Vector3 newPosition = Vector3.MoveTowards(transform.position, targets[current].position, speed * Time.deltaTime);
             GetComponent<Rigidbody>().MovePosition(newPosition);
             //Find direction where to look at
-            Vector3 direction = targets[current].position - transform.position;
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            Vector3 direction = new Vector3( targets[current].transform.position.x, transform.position.y, targets[current].transform.position.z);
+            transform.LookAt(direction);
         }
-        else current = current + 1;
+        else {
+            current = current + 1;
+        }
 	}
 }
