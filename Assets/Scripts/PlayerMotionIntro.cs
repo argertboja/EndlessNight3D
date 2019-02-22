@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ * @author: Argert Boja 
+ * @company: ABEnt.
+ * @date: 8/12/2018
+ * @version: 1.0.0.0
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
